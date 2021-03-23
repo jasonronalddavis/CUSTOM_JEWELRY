@@ -1,0 +1,173 @@
+customers
+
+
+user
+
+
+orders
+
+
+
+products
+
+
+
+class Restaurant
+  has_many :menus
+end
+
+class Menu
+  has_many :menu_items
+  has_many :sections
+
+  belongs_to :restaurant
+end
+
+class Section 
+  belongs_to :menu
+  has_many :menu_items
+end
+
+
+class MenuItem
+  belongs_to :menu
+  belongs_to :section
+end 
+
+
+class User < ApplicationRecord
+  has_secure_password
+  has_many :orders
+end
+
+class Order < ApplicationRecord
+  belongs_to :user
+  has_many :order_items
+  has_many :menu_items, through: :order_items
+end
+
+class OrderItem < ApplicationRecord
+  belongs_to :order
+  belongs_to :menu_item
+end
+
+class MenuItem < ApplicationRecord
+  has_many :order_items
+  has_many :orders, through: :order_items
+end
+
+
+
+
+
+
+
+
+
+
+
+class User < ApplicationRecord
+  has_secure_password
+  has_many :orders
+end
+
+class Order < ApplicationRecord
+  belongs_to :user
+  has_many :order_items
+  has_many :menu_items, through: :order_items
+end
+
+class OrderItem < ApplicationRecord
+
+  attr_accessr :type, :size, :price
+  belongs_to :order
+  belongs_to :menu_item
+end
+
+
+class ItemAlloy < ApplicationRecord
+
+  attr_accessr :type, :name
+
+end
+
+
+
+class MenuItem < ApplicationRecord
+
+  has_many :order_items
+  has_many :orders, through: :order_items
+end
+
+
+
+
+
+
+
+
+
+
+
+
+class Alloy < ApplicationRecord
+has_many :users
+has_many :orders, through: :users
+has_many :products, :through :users
+has_many :gemstones, :through :users
+end
+
+
+
+class Gemstone < ApplicationRecord
+has_many :users
+has_many :orders, through: :users
+has_many :products, :through :users
+has_many :alloys, :through :users
+end
+
+class jewelry
+
+
+
+class user < ApplicationRecord
+validates_presence_of :username, :password, :balance
+  belongs_to :order
+  belongs_to :product
+end
+
+
+
+Upon a web form, a user should be able to select a link from a list of categories(Alloy_type, Gem_stone, product_type)
+After selecting a link, the user will view a list of products associated with that category.
+A user will have an option to add a product to the cart.
+A user will have an option to return to the homepage
+From the homepage, a user will have the option to customize new product
+A user should be able to customize product according to class models(PoductType, Alloy, Gemstone)
+User should see price adjust according to model attributes
+User should have an option to add item to cart, start over, or return to homepage.
+User should be able to select a cart link which directs them to the "/cart" page route.
+A user should be able to see the accumulated total of all products within the cart.
+A user should be able to delete or increment product within cart
+A user should be able to see line_item price change according to adjustments
+A user sheould be able to return to homepage
+
+
+class Product < ApplicationRecord
+  has_many :user_products, dependent: :destroy
+  has_many :users, through: :user_products
+end
+
+
+class User < ApplicationRecord
+  has_many :user_products, dependent: :destroy
+  has_many :products, through: :user_products
+end
+
+
+class UserProduct < ApplicationRecord
+  self.table_name = "users_products"
+
+  belongs_to :user
+  belongs_to :product
+end

@@ -1,0 +1,19 @@
+
+<h2>All Products</h2>
+<table>
+  <h1>NAME</h1>
+  <tr>
+    <% @product.each do |prod| %>
+      <td align="center"><a href="/products/<%= prod.id %>"><%= prod.name %></a>
+      <ul>
+        <%prod.type.each do |t|%>
+        <li><%=t%></li>
+        <%end%>
+      </ul>
+     </tr> </td>
+  <% end %>
+</table>
+<br>
+
+<a class="button" href="products/new">Create New Product</a>
+<a class="button" href="/">Home</a>

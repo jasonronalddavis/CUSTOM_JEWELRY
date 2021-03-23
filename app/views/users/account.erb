@@ -1,0 +1,11 @@
+<h1>Welcome</h1>
+
+<h2>Edit Product</h2>
+
+<form action="/products/<%=@product.id%>" method="POST">
+  <label for="type">Name</label><br>
+  <input id="type" type="text" name="product[type]" value=<%=@product.type%><br>
+  <input type="submit" value="Edit product">
+</form>
+
+<p><a href="/logout">Log Out</a></p>
