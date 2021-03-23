@@ -18,8 +18,6 @@ class UsersController < Sinatra::Base
 
   
 
-  
-
   get "users/signup" do
     erb :'signup'
   end
@@ -62,25 +60,14 @@ class UsersController < Sinatra::Base
     redirect "/"
   end
 
-
-  get '/users/products' do
-    @product = Product.all
-  @users = User.all
+  get '/users/:id' do
     @curr_user = helpers.current_user(session)
-      @user_products = UserProduct.find(params[:user_product])
-      erb :'/products'
-      erb :'users/index'
-    end
-    
-      
-      
-    post '/users/products' do
-      "test_message"
-    #Product.create(params['product'])
-  #redirect '/products'
-      end
-  #   redirect to "/users/products/#{@user_product.id}"      
-  
+     "#{@curr_user.id}"
+     erb :"show"
+   end
+ 
+
+
 
   
   helpers do
