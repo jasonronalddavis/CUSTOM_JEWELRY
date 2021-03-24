@@ -24,12 +24,8 @@ class ProductsController < UsersController
     end
 
     post '/products' do 
-      @products = Product.all 
-      @product = Product.create
-     # if !params['product'].empty?
-         #attribute : data cooresponding
-      Product.all << @product
-      redirect "/products"
+      binding.pry
+      params.inspect
     end
   
     get '/products/:id' do
