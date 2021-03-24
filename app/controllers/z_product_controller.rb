@@ -24,12 +24,12 @@ class ProductsController < UsersController
     end
 
     post '/products' do 
-      binding.pry
-      params.inspect
-    end
-  
-    get '/products/:id' do
-      @product_id = Product.find(params[:id])
-      erb :"users/show"
+      #binding.pry
+      @products = Product.all 
+      @product = Product.create(params[:product])
+     # if !params['product'].empty?
+         #attribute : data cooresponding
+      Product.all << @product
+      redirect "/products"
     end
   end

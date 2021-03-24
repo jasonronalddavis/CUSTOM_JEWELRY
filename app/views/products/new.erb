@@ -1,40 +1,46 @@
-<h2>Create New Jewlery</h2>
+<h1>Create New Jewlery</h1>
 
 
 <form action="/products" method="post">
-<h1>Product Material</h1><br>
+
+<h2>Product Material</h2><br>
+
   <label for="type">Silver</label><br>
-  <input id="type" type="checkbox" name="params['product']['type']" /><br>
+  <input  type="radio" name='type' value="silver" /><br>
   <label for="type">Gold</label><br>
-  <input id="type" type="checkbox" name="params['product']['type']" /><br>
+  <input  type="radio" name="type" value="gold" /><br>
   
   
   <size>
-  <h1>Product Size</h1><br>
+  <h3>Product Size</h3><br>
+
   <label for="size">6</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="6" />
   <label for="size">6.5</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="6.5" />
   <label for="size">7</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="7" />
   <label for="size">7.5</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="7.5" />
   <label for="size">8</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="8" />
   <label for="size">8.5</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="8.5" />
   <label for="size">9</label>
-  <input id="size" type="checkbox" name="product[size]" />
+  <input id="size" type="radio" name="size" value="9" />
   <label for="size">9.5</label>
-  <input id="size" type="checkbox" name="product[size]" /><br><br>
+  <input id="size" type="radio" name="size" value="9.5" /><br><br>
   </size>
   
+
+  <h4>Gemstone</h4><br>
+
   <label for="gemstone">Opal</label>
-  <input id="gemstone" type="checkbox" name="product[gemstone]" /><br><br>
+  <input id="gemstone" type="radio" name="gemstone" value="opal" /><br><br>
   <label for="gemstone">Moonstone</label>
-  <input id="gemstone" type="checkbox" name="product[gemstone]" /><br><br>
+  <input id="gemstone" type="radio" name="gemstone" value="Moonstone" /><br><br>
   <label for="gemstone">CubicZirconia</label>
-  <input id="gemstone" type="checkbox" name="product[gemstone]" /><br><br>
+  <input id="gemstone" type="radio" name="gemstone" value="cubiczirconia" /><br><br>
   <input type="submit" value="Create New Jewelry">
   </form>
 
