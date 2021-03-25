@@ -24,12 +24,13 @@ class ProductsController < UsersController
     end
 
     post '/products' do 
-      #binding.pry
+    # binding.pry
+    params.inspect
       @products = Product.all 
-      @product = Product.create(params[:product])
+      @product = Product.create(type: params['product']['type'], size: params['product']['size'], gemstone: params['product']['gemstone'])
      # if !params['product'].empty?
          #attribute : data cooresponding
-      Product.all << @product
+      @product.save
       redirect "/products"
     end
   end
