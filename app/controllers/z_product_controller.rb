@@ -10,6 +10,7 @@ class ProductsController < UsersController
 
 
     get '/products' do
+      @product = Product.create(params)
       @products = Product.all
       erb :'products/index'
     end
@@ -24,13 +25,12 @@ class ProductsController < UsersController
     end
 
     post '/products' do 
+     
     # binding.pry
-    params.inspect
+    @product.save
       @products = Product.all 
-      @product = Product.create(type: params['product']['type'], size: params['product']['size'], gemstone: params['product']['gemstone'])
      # if !params['product'].empty?
          #attribute : data cooresponding
-      @product.save
       redirect "/products"
     end
   end
