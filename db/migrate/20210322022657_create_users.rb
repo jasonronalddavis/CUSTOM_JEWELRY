@@ -2,8 +2,8 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |col|
       col.string :username
-      col.string :password
-      col.float :balance
+      col.string :password_digest
+      col.string :userproducts
     end
   end
 end

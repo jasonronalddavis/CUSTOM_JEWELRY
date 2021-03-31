@@ -1,12 +1,17 @@
 
+<h4> <%= @user.username%></h4><br><br>
+
+
 <h2>All Products</h2>
 
 
 <ul>
-  <%@products.each do |prod|%>
-  <li><%= prod.type%></li>
+  <% @products.each do |prod|%>
+  <li><a href="/products/<%=prod.slug%>"><%=prod.product_name%></a></li>
   <%end%>
 </ul>
+
+
 
 <a class="button" href="products/new">Create New Product</a>
 <a class="button" href="/">Home</a>
