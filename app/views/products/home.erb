@@ -1,10 +1,33 @@
-<h1>Welcome!</h1>
+
+
+ <div id="logo">
+ <img src="images/zsmith logo.png" alt="logo">
+ </div>
+
+ <div id="welcome">
+<h1>Welcome <%if Helpers.logged_in?(session)%>
+<%=@user.username%>!</h1><br><br>
+<%else%>
+Guest!</h1><br><br>
+<%end%>
+ </div>
 
 
 
-<p> Please <a href="/users/signup">Sign Up</a> or <a href="/users/login">Log In</a> to continue.
+
+<div id="href">
+<% if Helpers.logged_in?(session)%>
+<p> View your <a href="/products">products</a> or </p>
+<p> <a href="/users/logout">Log out</a></p> 
+<%else%>
+<p> For a better experience </p>
+
+ <p> Please <a href="/users/signup">Sign Up</a> or 
+<a href="/users/login">Log In</a> to continue. </p>
+<%end%>
 
 
 
 
-<a class="button" href="/products">Products</a>
+
+

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210322022721) do
+ActiveRecord::Schema.define(version: 20210408042857) do
+
+  create_table "product_storages", force: :cascade do |t|
+    t.string  "product_name"
+    t.string  "alloy"
+    t.float   "size"
+    t.string  "gemstone"
+    t.integer "user_id"
+    t.integer "product_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string  "product_name"
@@ -19,12 +28,18 @@ ActiveRecord::Schema.define(version: 20210322022721) do
     t.float   "size"
     t.string  "gemstone"
     t.integer "user_id"
+    t.integer "product_storage_id"
+  end
+
+  create_table "user_products", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "product_storage_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "userproducts"
   end
 
 end

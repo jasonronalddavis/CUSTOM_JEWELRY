@@ -1,17 +1,27 @@
 
+<div id="user">
 <h4> <%= @user.username%></h4><br><br>
 
+<div>
 
-<h2>All Products</h2>
+<div id="header_2">
+<h2> Products</h2>
+</div>
 
 
+<div id="all">
 <ul>
-  <% @products.each do |prod|%>
-  <li><a href="/products/<%=prod.slug%>"><%=prod.product_name%></a></li>
+  <% @user.products.each do |prod|%>
+  <li><a href="/products/<%=prod.id%>"><%=prod.product_name%></a></li>
   <%end%>
 </ul>
 
+</div>
 
 
+
+
+<div id="buttons">
 <a class="button" href="products/new">Create New Product</a>
 <a class="button" href="/">Home</a>
+<div>

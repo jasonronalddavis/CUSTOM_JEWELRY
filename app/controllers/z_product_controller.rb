@@ -5,28 +5,39 @@ class ProductsController < ApplicationController
     set :views, proc { File.join(root, '../views/') }
     enable :sessions
     set :session_secret, "password_security"
+    
   end
   
     
     get "/products/home" do
-      
+      if Helpers.logged_in?(session[:user_id])
+      @user = User.find(session[:user_id])
+    else 
+      @user = nil
         erb :"/products/home"
-  end
-
+      
+end
+end
 
   post "/products/home" do
-     
+    if Helpers.logged_in?(session[:user_id])
+      @user = User.find(session[:user_id])
+    else
+      @user = nil
     erb :"/products/home"
+    
+end
 end
 
 
 
     get '/products' do
-    #  binding.pry
-        @user = User.find(session[:user_id])
+
+       @user = User.find(session[:user_id])
       @products = Product.all
       erb :'products/index'
   end
+
 
     get '/products/new' do
      # binding.pry
@@ -37,22 +48,59 @@ end
         erb :"products/new"
     end
 
-  
-    post '/products' do 
-      
-        @user = User.find(session[:user_id])
+
+
+    get '/products/:id' do
 #binding.pry
-      @product = Product.create(params[:product])
-      
-     if !params[:product].empty?
-      @user.userproducts << @product
-      redirect "/userproducts"  
-     else
-  puts "invalid input"
-    sleep(5.seconds)
-        redirect "/products"
-     end
+      @user = User.find(session[:user_id])
+      @product = Product.find(params[:id])
+     # @product_storage = ProductStorage.find(params[:id])
+      erb :"products/show.html"
     end
+
+  
+    get "/products/:id/edit" do
+     
+      @user = User.find(session[:user_id])
+      @product = Product.find(params[:id])
+      erb :"products/edit"
+     
+    end
+  
+    patch "/products/:id" do
+    
+      @user = User.find(session[:user_id])
+   #  if @product != nil
+      @product = Product.find(params[:id])
+  #    else
+   # @product = Product.find(params[:id])
+      @product.product_name = params['product_name']
+    # @product_storage.product_name = params['product_name']
+      @product.alloy = params['alloy']
+     # @product_storage.product_name = params['alloy']
+      @product.size = params['size']
+     # @product_storage.size = params['size']
+      @product.gemstone = params['gemstone']
+     # @product_storage.gemstone = params['gemstone']
+      @product.save
+     # if @product_storage
+       # redirect to "/products/#{@product_storage.id}"
+    #  else
+      redirect to "/products/#{@product.id}"
+    end
+ 
+    post '/products' do 
+        @user = User.find(session[:user_id])
+     if Helpers.input?(params[:product])
+      @product = Product.new(params[:product]) 
+     #@ps = ProductStorage.create(params[:product])
+     @user.products << @product
+      redirect "/products"  
+     else
+      redirect "/users/failure"
   end
+end
+end
+
 
 

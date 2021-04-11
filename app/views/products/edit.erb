@@ -1,55 +1,63 @@
 
-<h1>Edit <%= @user_product.name %></h1>
+<h1> <%=@user.username%> edit your jewelry</h1><br><br>
 
-<form action="/user_product/<%= @user_product.slug %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
+<h2> <%=params[:slug]%> </h2>
+
+<h1>Edit your Jewlery</h1>
 
 
-  <h2>Create a name for your jewelry</h2>
+<form action="/products/<%=@product.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+
+
+<h2>Create a name for your jewelry</h2>
+
+<label for="name"Name</label><br>
+<input id="name" type="text" name='product_name'/><br><br>
+
+
+
+
+<h2>Product Material</h2><br>
+
+  <label for="type">Silver</label>
+  <input  type="radio"  name='alloy' value="silver"/>
+  <label for="type">Gold</label>
+  <input id ="type" type="radio" name='alloy' value="gold"/><br><br>
   
-  <label for="name"Name</label><br>
-  <input type="text" name='product[product_name]'/><br><br>
   
   
+  <h3>Product Size</h3><br>
+
+  <label for="size">6</label>
+  <input id="size" type="radio" name='size' value="6" />
+  <label for="size">6.5</label>
+  <input id="size" type="radio" name'size' value="6.5" />
+  <label for="size">7</label>
+  <input id="size" type="radio" name='size' value="7" />
+  <label for="size">7.5</label>
+  <input id="size" type="radio" name='size' value="7.5" />
+  <label for="size">8</label>
+  <input id="size" type="radio" name='size' value="8" />
+  <label for="size">8.5</label>
+  <input id="size" type="radio" name='size' value="8.5" />
+  <label for="size">9</label>
+  <input id="size" type="radio" name='size' value="9" />
+  <label for="size">9.5</label>
+  <input id="size" type="radio" name='size' value="9.5" /><br><br>
   
   
-  <h2>Product Material</h2><br>
-  
-    <label for="type">Silver</label>
-    <input  type="radio"  name='product[alloy]' value="silver"/>
-    <label for="type">Gold</label>
-    <input  type="radio" name='product[alloy]' value="gold"/><br><br>
-    
-    
-    
-    <h3>Product Size</h3><br>
-  
-    <label for="size">6</label>
-    <input  type="radio" name='product[size]' value="6" />
-    <label for="size">6.5</label>
-    <input  type="radio" name'product[size]' value="6.5" />
-    <label for="size">7</label>
-    <input  type="radio" name='product[size]' value="7" />
-    <label for="size">7.5</label>
-    <input  type="radio" name='product[size]' value="7.5" />
-    <label for="size">8</label>
-    <input  type="radio" name='product[size]' value="8" />
-    <label for="size">8.5</label>
-    <input  type="radio" name='product[size]' value="8.5" />
-    <label for="size">9</label>
-    <input  type="radio" name='product[size]' value="9" />
-    <label for="size">9.5</label>
-    <input  type="radio" name='product[size]' value="9.5" /><br><br>
-    
-    
-  
-    <h4>Gemstone</h4><br>
-  
-    <label for="gemstone">Opal</label>
-    <input  type="radio" name='product[gemstone]' value="opal" />
-    <label for="gemstone">Moonstone</label>
-    <input  type="radio" name='product[gemstone]' value="Moonstone" />
-    <label for="gemstone">CubicZirconia</label>
-    <input  type="radio" name='product[gemstone]' value="cubiczirconia" />
-    <input type="submit" value="Create New Jewelry"><br><br>
-    </form>
+
+  <h4>Gemstone</h4><br>
+
+  <label for="gemstone">Opal</label>
+  <input  id="size" type="radio" name='gemstone' value="opal" />
+  <label for="gemstone">Moonstone</label>
+  <input  id="size" type="radio" name='gemstone' value="Moonstone" />
+  <label for="gemstone">CubicZirconia</label>
+  <input  id="size" type="radio" name='gemstone' value="cubiczirconia" />
+  <input type="submit" value="Edit Jewelry"><br><br>
+  </form>
+
+
+

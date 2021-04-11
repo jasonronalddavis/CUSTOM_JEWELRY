@@ -1,0 +1,110 @@
+
+html {
+  
+  background: url(../images/zsmith.jpg) no-repeat center;
+  position: absolute;
+  text-align: center;
+  vertical-align: left;
+  justify-content: left;
+  align-items: left;
+  position:relative;
+  color: #808080;
+font-size: 3em;
+}
+
+
+#user {
+  position:relative; left: -30px;
+  position: relative;
+  text-align: center;
+
+}
+
+#welcome {
+  position:relative;
+  text-align: center;
+  top: 40px;
+}
+
+
+
+
+
+#all a{
+  color: #68d8e0;
+}
+
+
+#all ul{
+  text-align: center;
+}
+
+
+#all {
+  position: relative;
+  text-align: center;
+}
+
+#header_2 {
+
+  position: relative;
+  text-align: center;
+  top: -100px;
+filter: drop-shadow(5px 20px 10px #8b8b8c);
+}
+
+
+
+#all a:hover {
+  color: hotpink;
+}
+
+
+
+#href a:link {
+  color: #494949;
+}
+
+
+#href a:visited {
+
+  color: #68d8e0;
+
+}
+
+#href a:hover {
+  color: hotpink;
+  line-height:18pt;
+}
+
+
+#logo img {
+  position:relative; top:30px;
+  width: 350px;
+}
+
+
+
+
+
+#buttons {
+  position:relative; left: -20px; top: 400px;
+  text-align: center;
+}
+
+
+
+#buttons a {
+  color: #48d6ab;
+}
+
+
+#buttons a:hover {
+  color: hotpink;
+}
+
+
+
+
+
+

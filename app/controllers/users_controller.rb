@@ -10,12 +10,10 @@ class UsersController < ApplicationController
         set :views, proc { File.join(root, '../views/') }
         enable :sessions
         set :session_secret, "password_security"
+        
       end
-      
 
 
-
-    
 
       get '/users/signup' do 
         erb :'/users/signup'
@@ -34,9 +32,8 @@ class UsersController < ApplicationController
 
       
       get "/userproducts" do
-        
-    binding.pry
-        @user = User.find(session[:user_id])
+    #binding.pry
+        @user = User.find(session[:user_id]) 
 		erb :"/users/users_products"
 		end
 
@@ -44,6 +41,7 @@ class UsersController < ApplicationController
         get "/users/login" do
             erb :'users/login'
           end
+    
 
            
       post "/users/login" do
@@ -65,8 +63,8 @@ class UsersController < ApplicationController
   
 
   get "/users/logout" do
-    session.clear
-    redirect to "/products/home"
+    session.clear  
+    redirect to "/"
   end
 
 
@@ -79,19 +77,4 @@ class UsersController < ApplicationController
       User.find(session[:user_id])
     end
   end
-
-  get '/user_product/:slug/edit' do
-    @user_product = Product.find_by_slug(params[:slug])
-    erb :"/products/edit"
-  end
-
-  patch '/user_product/:slug' do
-    @user_product = Product.find_by_slug(params[:slug])
-    @@user_product.update(params[:product])
-    @user_product.save
-    flash[:message] = "Successfully updated product."
-    redirect to "/userproducts/#{@user_product.slug}"
-  end
-
 end
-
